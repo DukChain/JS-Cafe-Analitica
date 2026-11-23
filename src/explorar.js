@@ -50,7 +50,7 @@ function unidadesVendidas(ventas) {
 
 //console.log('La cantidad vendida es:',unidadesVendidas(ventas));
 
-
+/*  ORIGINAL
 function ventaMayor(ventas) {
     let Mayor = ventas[0];
 
@@ -61,6 +61,26 @@ function ventaMayor(ventas) {
   }
 
   return Mayor;
+}*/
+
+function ventaMayor(ventas, contador) {
+  if (ventas.length === 0) {
+    return null;
+  }
+
+  let mayor = ventas[0];
+
+  for (const ventaActual of ventas) {
+    if (contador) {
+      contador.pasos += 1;
+    }
+
+    if (valorVenta(ventaActual) > valorVenta(mayor)) {
+      mayor = ventaActual;
+    }
+  }
+
+  return mayor;
 }
 
 //console.log('La venta mayor es:',ventaMayor(ventas))

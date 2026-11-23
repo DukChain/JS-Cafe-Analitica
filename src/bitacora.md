@@ -1,3 +1,4 @@
+DIA 1
 MICRO RETO 1
 
 
@@ -188,3 +189,41 @@ topProductosPorValor:
 ¿Qué acumulo?: El valor monetario (item.cantidad * item.precio) generado por cada producto dentro de acumulador, iniciando en {}.
 
 ¿Cómo agrupo?: Agrupa las ventas por el nombre normalizado de item.producto en un objeto diccionario antes de transformarlo en el ranking ordenado de los k productos con mayor valor.
+
+
+MINIRETO 4
+
+
+
+
+
+
+
+
+
+
+--------------------------------------------------
+
+DIA 2
+MINI RETO 1
+
+ Si n llega a ser 100, 1.000, 10.000 y 100.000 respectivamente y usando la informacion de analitica y explorar la mayoria llega a ser O(n) y con la integracion de primera vente ese es O(1), porque de ellas:
+
+ totalVendidoM, ventaMayor y totalPorCiudad son O(n) ya que en cada vuelta todo llega a ejecutarse una unica vez y primeraVenta es O(1) ya que como su nombre dice al pedir solo la primera venta este solo se ejecuta una unica vez independiente del arreglo 
+
+┌─────────┬─────────┬─────────────────┬──────────────────┬───────────────┬───────────────────┐
+│ (index) │ n       │ op_primeraVenta │ op_totalVendidoM │ op_ventaMayor │ op_totalPorCiudad │
+├─────────┼─────────┼─────────────────┼──────────────────┼───────────────┼───────────────────┤
+│ 0       │ 100     │ 1               │ 200              │ 100           │ 100               │
+│ 1       │ 1000    │ 1               │ 2000             │ 1000          │ 1000              │
+│ 2       │ 10000   │ 1               │ 20000            │ 10000         │ 10000             │
+│ 3       │ 100000  │ 1               │ 200000           │ 100000        │ 100000            │
+│ 4       │ 1000000 │ 1               │ 2000000          │ 1000000       │ 1000000           │
+└─────────┴─────────┴─────────────────┴──────────────────┴───────────────┴───────────────────┘
+
+la tabla muestra resultados esperados, siendo una ligera diferencia en totalVendidoM ya que ahi se valido es cuando pasaba el ciclo por .map y .reduce, siendo que de igual manera eso no crea conflicto alguno ya que a final de cuentas sigue siendo O(n) porque el sistema sigue corriendo una unica vez aunque sean 2 metodos los implementados en la funcion.
+
+
+
+MINI RETO 2
+

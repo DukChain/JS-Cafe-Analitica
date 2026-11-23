@@ -1,11 +1,23 @@
 const { ventas } = require('./datos')
 const { valorVenta } = require('./explorar')
 
-
+/*ORIGINAL
 const totalVendidoM = (items) =>
     items
         .map((venta) => venta.cantidad * venta.precio)
         .reduce((total, monto) => total + monto, 0);
+*/
+
+const totalVendidoM = (items, contador) =>
+  items
+    .map((venta) => {
+      if (contador) contador.pasos += 1; // Visita cada venta en map
+      return valorVenta(venta);
+    })
+    .reduce((total, monto) => {
+      if (contador) contador.pasos += 1; // Suma/compara en reduce
+      return total + monto;
+    }, 0);
 
 //console.log(`El total vendido es: ${totalVendidoM(ventas)}`)
 
@@ -24,10 +36,20 @@ const ventasPorCiudadM = (lista, ciudadExistente) => {
 
 //console.log(ventasPorCiudadM(ventas, "medellín "));   
 
+/*ORIGINAL
 const totalPorCiudad = (ventas) =>
   ventas.reduce((tCiudad, item) => {
     const clave = (item.ciudad ?? "").trim().toLowerCase()
     tCiudad[clave] = (tCiudad[clave] ?? 0) + valorVenta(item)
+    return tCiudad;
+  }, {});
+*/
+
+const totalPorCiudad = (ventas, contador) =>
+  ventas.reduce((tCiudad, item) => {
+    if (contador) contador.pasos += 1; // Visita cada venta
+    const clave = (item.ciudad ?? "").trim().toLowerCase();
+    tCiudad[clave] = (tCiudad[clave] ?? 0) + valorVenta(item);
     return tCiudad;
   }, {});
 
