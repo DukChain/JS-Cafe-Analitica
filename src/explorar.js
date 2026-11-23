@@ -77,13 +77,29 @@ function TotalCantidades(ventas) {
 
     return TCantidad    
 }
-
+/*
 function ticketPromedio(ventas) {
     
     let Tprom = totalVendido(ventas)/TotalCantidades(ventas)
 
 
     return Tprom
+}
+*/
+
+function ticketPromedio(ventas) {
+  if (!Array.isArray(ventas) || ventas.length === 0) {
+    return 0;
+  }
+
+  const total = totalVendido(ventas);
+  const cantidad = TotalCantidades(ventas);
+
+  if (cantidad === 0) {
+    return 0;
+  }
+
+  return total / cantidad;
 }
 
 //console.log('EL promedio es:',ticketPromedio(ventas));

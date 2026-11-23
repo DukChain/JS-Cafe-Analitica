@@ -42,4 +42,4 @@ console.log(JSON.stringify(totalPorCiudad(ventas), null, 2));
 
 console.log(JSON.stringify(unidadesPorProducto(ventas), null, 2));
 
-console.log(topProductosPorValor(ventas, 4));
+console.log(topProductosPorValor(ventas, 3));

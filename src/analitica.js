@@ -67,11 +67,21 @@ const topProductosPorValor = (ventas, k) => {
 //console.log(topProductosPorValor(ventas, 4));
 
 
+//------------------------------
+//MINI RETO 4
+
+const ventasDelDia = (lista, fecha) => {
+  const fechaObjetivo = (fecha ?? "").trim();
+  return lista.filter((venta) => (venta.fecha ?? "").trim() === fechaObjetivo);
+};
+
+
 module.exports = {
   totalVendidoM,
   unidadesVendidasM,
   ventasPorCiudadM,
   totalPorCiudad,
   unidadesPorProducto,
-  topProductosPorValor
+  topProductosPorValor,
+  ventasDelDia
 }
