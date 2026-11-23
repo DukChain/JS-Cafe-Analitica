@@ -2,6 +2,7 @@ const { ventas } = require('./datos')
 
 // MINIRETO 1
 
+/*
 console.log('Cantidad de registros:', ventas.length)
 
 
@@ -13,7 +14,7 @@ console.log('Producto en posición 4:', ventas[4].producto)
 
 
 console.table(ventas)
-
+*/
 
 //MINIRETO 2
 
@@ -33,7 +34,7 @@ function totalVendido(ventas) {
     return TVendido
 }
 
-console.log('El total de ventas es:',totalVendido(ventas));
+//console.log('El total de ventas es:',totalVendido(ventas));
 
 function unidadesVendidas(ventas) {
     
@@ -47,7 +48,7 @@ function unidadesVendidas(ventas) {
     return totalUnidades
 }
 
-console.log('La cantidad vendida es:',unidadesVendidas(ventas));
+//console.log('La cantidad vendida es:',unidadesVendidas(ventas));
 
 
 function ventaMayor(ventas) {
@@ -62,7 +63,7 @@ function ventaMayor(ventas) {
   return Mayor;
 }
 
-console.log('La venta mayor es:',ventaMayor(ventas))
+//console.log('La venta mayor es:',ventaMayor(ventas))
 
 
 function TotalCantidades(ventas) {
@@ -85,7 +86,7 @@ function ticketPromedio(ventas) {
     return Tprom
 }
 
-console.log('EL promedio es:',ticketPromedio(ventas));
+//console.log('EL promedio es:',ticketPromedio(ventas));
 
 
 function ventasPorCiudad(ventas, ciudad) {
@@ -102,11 +103,19 @@ function ventasPorCiudad(ventas, ciudad) {
 
   return totalCiudad;
 }
-
+/*
 console.log('El total de cada Ciudad es:');
 console.log('Medellín -',ventasPorCiudad(ventas, "Medellín"))
 console.log('Bogotá -',ventasPorCiudad(ventas, "Bogotá"))      
 console.log('Cali -',ventasPorCiudad(ventas, "Cali"))         
 console.log('Pereira -',ventasPorCiudad(ventas, "Pereira"))     
+*/
 
-
+module.exports = {
+  valorVenta,
+  totalVendido,
+  unidadesVendidas,
+  ventaMayor,
+  ticketPromedio,
+  ventasPorCiudad
+}
