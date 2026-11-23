@@ -194,12 +194,19 @@ topProductosPorValor:
 MINIRETO 4
 
 
+-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
+
+Se finaliza el Dia 1 de semana 1 el Nov 22, en este se realiza el proceso con la guia de Gemini, la AI se le implemente un prompt sencillo donde hara de profesor y toda la informacion que esta me de sera por medio de pistas o guias, aun con esta ayuda lo que mas me costo fue entender y realizar el ultimo minireto aunque en papel era simplemente hacer un conjunto de console.log mostrando la informacion requerida me fue mas complicado entender que papel cumplia el toLocaleString y en medio de eso llegue a pedir algo mas detallado a la AI cosa que me entrego esta seccion.
 
 
+texto
+    .trim()
+    .split(/\s+/)
+    .filter(Boolean)
+    .map((palabra) => palabra[0].toUpperCase() + palabra.slice(1).toLowerCase())
+    .join(" ");
 
-
-
-
+Algo que es puramente estetico sin proposito especial pero que tambien necesite entender para poder llegarlo a usar en elgun futuro o poder comprender algo similar en algun otro momento.
 
 
 --------------------------------------------------
@@ -227,3 +234,36 @@ la tabla muestra resultados esperados, siendo una ligera diferencia en totalVend
 
 MINI RETO 2
 
+analizando la informacion de consola
+
+clientesRecurrentes-1000: 3.839ms
+n = 1000 -> recurrentes encontrados: 266
+clientesRecurrentes-2000: 12.736ms
+n = 2000 -> recurrentes encontrados: 537
+clientesRecurrentes-4000: 45.494ms
+n = 4000 -> recurrentes encontrados: 1072
+clientesRecurrentes-8000: 232.113ms
+n = 8000 -> recurrentes encontrados: 2122
+clientesRecurrentes-16000: 908.052ms
+n = 16000 -> recurrentes encontrados: 4271
+
+como dice el problema esto es un O(n²) porque mientras mas ventas se registren mas ciclos tendra que hacer la funcion de clientesRecurrentes causando un mayor retraso de tiempo.
+
+con 100.000 y 1.000.000 se hizo estimaciones donde la escala llega 35 s y 59 min respectivamente de manera aproximada
+y al realizar el proceso con 100.000 se llega a tener un total de 37.25 s
+
+
+Costo oculto en `clientesRecurrentes`: `recurrentes.includes()`
+
+- El costo oculto: `recurrentes.includes(ventas[i].cliente)` realiza una búsqueda lineal (paso a paso) dentro del arreglo `recurrentes`; no es una consulta instantánea.
+- Dónde ocurre: Está evaluándose dentro del ciclo anidado (`j`), por lo que cada vez que se evalúa la condición puede escanear los elementos ya insertados en `recurrentes`.
+- Efecto en el peor caso:
+  - Los dos ciclos sobre `ventas` ya generan $\frac{n(n - 1)}{2}$ comparaciones de pares, base de un comportamiento cuadrático $O(n^2)$.
+  - Si existen muchos clientes distintos que se vuelven recurrentes (`recurrentes` crece hasta tamaño proporcional a $n$), cada búsqueda con `.includes()` puede costar hasta $O(n)$.
+  - En el peor escenario combinado, el trabajo crece hasta un orden de $O(n^3)$ (o $O(n^2 \cdot m)$, siendo $m$ la longitud de `recurrentes`), explicando el fuerte salto de tiempos al escalar el volumen de ventas.
+
+
+   En conclusion el porque el sistema se vuelve lento al usar los datos reales es porque el sistema muentras mas informacion tenga mas tardara, es un proceso exponencial que afecta toda la produccion.
+
+
+   
