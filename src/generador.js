@@ -1,5 +1,3 @@
-const {totalCiudadCadena, ventasPorCiudad}  = require("./explorar");
-
 const CATALOGO = [
   { producto: "Origen Huila 500 g", precio: 42000 },
   { producto: "Origen Nariño 250 g", precio: 26000 },

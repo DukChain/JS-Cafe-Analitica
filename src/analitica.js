@@ -1,5 +1,6 @@
 const { ventas } = require('./datos')
 const { valorVenta } = require('./explorar')
+const { generarVentas } = require("./generador");
 
 /*ORIGINAL
 const totalVendidoM = (items) =>
@@ -89,6 +90,41 @@ const topProductosPorValor = (ventas, k) => {
 //console.log(topProductosPorValor(ventas, 4));
 
 
+//MINIRETO 2 D2 S1
+
+function clientesRecurrentes(ventas) {
+  const recurrentes = [];
+
+  for (let i = 0; i < ventas.length; i++) {
+    for (let j = i + 1; j < ventas.length; j++) {
+      if (
+        ventas[i].cliente === ventas[j].cliente &&
+        !recurrentes.includes(ventas[i].cliente)
+      ) {
+        recurrentes.push(ventas[i].cliente);
+      }
+    }
+  }
+
+  return recurrentes;
+}
+
+/*const tamanios = [1000, 2000, 4000, 8000, 16000,100000]
+
+
+
+for (const n of tamanios) {
+	const vuelta = generarVentas(n)
+	const etiqueta= `clientesRecurrentes-${n}`
+	
+	console.time(etiqueta)
+	const recurrentes=clientesRecurrentes(vuelta)
+	console.timeEnd(etiqueta)
+	
+	console.log(`n = ${n} -> recurrentes encontrados: ${recurrentes.length}`)
+}*/
+
+
 //------------------------------
 //MINI RETO 4 D1 S1
 
@@ -111,5 +147,6 @@ module.exports = {
   totalPorCiudad,
   unidadesPorProducto,
   topProductosPorValor,
-  ventasDelDia
+  ventasDelDia,
+  clientesRecurrentes
 }
