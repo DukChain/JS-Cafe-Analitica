@@ -1,6 +1,6 @@
 const { generarVentas } = require("./generador");
 const {totalVendidoM, totalPorCiudad,} = require("./analitica");
-const {valorVenta, ventaMayor} = require("./explorar");
+const {valorVenta, ventaMayor,} = require("./explorar");
 const { ventas } = require("./datos");
 
 function primeraVenta(ventas, contador) {
@@ -45,6 +45,7 @@ for (const n of tamanos) {
 console.table(resultadosTabla);
 */
 
+//MINIRETO 2 D2 S1
 
 function clientesRecurrentes(ventas) {
   const recurrentes = [];
@@ -63,7 +64,7 @@ function clientesRecurrentes(ventas) {
   return recurrentes;
 }
 
-const tamanios = [1000, 2000, 4000, 8000, 16000,100000]
+/*const tamanios = [1000, 2000, 4000, 8000, 16000,100000]
 
 
 
@@ -75,5 +76,7 @@ for (const n of tamanios) {
 	const recurrentes=clientesRecurrentes(vuelta)
 	console.timeEnd(etiqueta)
 	
-	console.table(`n = ${n} -> recurrentes encontrados: ${recurrentes.length}`)
-}
+	console.log(`n = ${n} -> recurrentes encontrados: ${recurrentes.length}`)
+}*/
+
+

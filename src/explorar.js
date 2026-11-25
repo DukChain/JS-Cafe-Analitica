@@ -4,15 +4,9 @@ const { ventas } = require('./datos')
 
 /*
 console.log('Cantidad de registros:', ventas.length)
-
-
 console.log('Primer registro:', ventas[0]);
 console.log('Último registro:', ventas[ventas.length - 1])
-
-
 console.log('Producto en posición 4:', ventas[4].producto)
-
-
 console.table(ventas)
 */
 
@@ -97,7 +91,7 @@ function TotalCantidades(ventas) {
 
     return TCantidad    
 }
-/*
+/* ORIGINAL
 function ticketPromedio(ventas) {
     
     let Tprom = totalVendido(ventas)/TotalCantidades(ventas)
@@ -124,13 +118,13 @@ function ticketPromedio(ventas) {
 
 //console.log('EL promedio es:',ticketPromedio(ventas));
 
-
+//MINI RETO 7 D2 S1  (Ya se habia realizado anteriormente asi que no la repito)
 function ventasPorCiudad(ventas, ciudad) {
-  const ciudadBuscada = ciudad.trim().toLowerCase();
+  const ciudadBuscada = (ciudad ?? "").trim().toLowerCase();
   let totalCiudad = 0;
 
   for (const ventaC of ventas) {
-    const ciudadVenta = ventaC.ciudad.trim().toLowerCase();
+    const ciudadVenta = (ventaC.ciudad ?? "").trim().toLowerCase();
 
     if (ciudadVenta === ciudadBuscada) {
       totalCiudad += valorVenta(ventaC);
@@ -139,13 +133,51 @@ function ventasPorCiudad(ventas, ciudad) {
 
   return totalCiudad;
 }
-/*
-console.log('El total de cada Ciudad es:');
-console.log('Medellín -',ventasPorCiudad(ventas, "Medellín"))
-console.log('Bogotá -',ventasPorCiudad(ventas, "Bogotá"))      
-console.log('Cali -',ventasPorCiudad(ventas, "Cali"))         
-console.log('Pereira -',ventasPorCiudad(ventas, "Pereira"))     
-*/
+
+//console.log('El total de cada Ciudad es:');  console.log('Medellín -',ventasPorCiudad(ventas, "Medellín"))  console.log('Bogotá -',ventasPorCiudad(ventas, "Bogotá"))  console.log('Cali -',ventasPorCiudad(ventas, "Cali"))  console.log('Pereira -',ventasPorCiudad(ventas, "Pereira"))     
+
+
+//MINI RETO 7 D2 S1
+
+const normalizar = (texto) => (texto ?? "").trim().toLowerCase();
+
+const totalCiudadCadena = (ventas, ciudad, contador) => {
+  const buscada = normalizar(ciudad);
+
+  return ventas
+    .map((venta) => {
+      if (contador) contador.pasos += 1
+      return { ...venta, ciudad: normalizar(venta.ciudad) }
+    })
+    .filter((venta) => {
+      if (contador) contador.pasos += 1
+      return venta.ciudad===buscada 
+    })
+    .map((venta) => {
+      if (contador) contador.pasos += 1
+      return valorVenta(venta)
+    })
+    .reduce((acc, monto) => {
+      if (contador) contador.pasos += 1
+      return acc + monto
+    }, 0);
+};
+
+
+const totalCiudadUnaPasada = (ventas, ciudad, contador) => {
+  const buscada = normalizar(ciudad);
+  let total = 0;
+
+  for (const venta of ventas) {
+    if (contador) contador.pasos += 1;
+    if (normalizar(venta.ciudad) === buscada) {
+      total += valorVenta(venta);
+    }
+  }
+
+  return total;
+};
+//console.log(totalCiudadCadena(ventas,"Medellín"))
 
 module.exports = {
   valorVenta,
@@ -153,5 +185,7 @@ module.exports = {
   unidadesVendidas,
   ventaMayor,
   ticketPromedio,
-  ventasPorCiudad
+  ventasPorCiudad,
+  totalCiudadCadena,
+  totalCiudadUnaPasada
 }

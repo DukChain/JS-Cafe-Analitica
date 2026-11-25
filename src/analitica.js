@@ -51,7 +51,7 @@ const totalPorCiudad = (ventas, contador) =>
     const clave = (item.ciudad ?? "").trim().toLowerCase();
     tCiudad[clave] = (tCiudad[clave] ?? 0) + valorVenta(item);
     return tCiudad;
-  }, {});
+  }, {})
 
 /*console.log(totalPorCiudad(ventas));
 console.log(JSON.stringify(totalPorCiudad(ventas), null, 2));
@@ -68,7 +68,7 @@ const unidadesPorProducto = (ventas) =>
     const clave = (item.producto ?? "").trim().toLowerCase()
     uProducto[clave] = (uProducto[clave] ?? 0) + item.cantidad
     return uProducto;
-  }, {});
+  }, {})
 
 //console.log(JSON.stringify(unidadesPorProducto(ventas), null, 2));
 
@@ -78,24 +78,30 @@ const topProductosPorValor = (ventas, k) => {
   const acumulador = ventas.reduce((acc, item) => {
     const clave = (item.producto ?? "").trim().toLowerCase()
     acc[clave] = (acc[clave] ?? 0) + item.cantidad * item.precio
-    return acc;
-  }, {});
+    return acc
+  }, {})
 
   return Object.entries(acumulador)
     .toSorted((a, b) => b[1] - a[1])
-    .slice(0, k);
+    .slice(0, k)
 };
 
 //console.log(topProductosPorValor(ventas, 4));
 
 
 //------------------------------
-//MINI RETO 4
+//MINI RETO 4 D1 S1
 
 const ventasDelDia = (lista, fecha) => {
   const fechaObjetivo = (fecha ?? "").trim();
   return lista.filter((venta) => (venta.fecha ?? "").trim() === fechaObjetivo);
 };
+
+
+
+//MINI RETO 7 D2 S1
+
+
 
 
 module.exports = {
