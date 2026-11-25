@@ -210,6 +210,10 @@ Algo que es puramente estetico sin proposito especial pero que tambien necesite 
 
 
 --------------------------------------------------
+//////////////////////////////////////////////////
+//////////////////////////////////////////////////
+--------------------------------------------------
+
 
 DIA 2
 MINI RETO 1
@@ -295,3 +299,22 @@ Iria por totalCiudadUnaPasada ya que aunque ambas se en tipo duran lo mismo su e
 MINI RETO 4
 
 
+Ya que este minireto no conlleva nada de codigo y todo se crea aparte la informacion completa esta en RENDIMIENTO.md
+
+
+-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
+
+Se finaliza el Dia 2 Semana 1 el 25 de Noviembre
+
+Esta seccion me dio mas conflicto no por su dificultad si no por que en mi persona suelo buscar la solucion mas optima de acuerdo a la informacion que me dan asi que me entra en conflicto el pensar hacer cosas de maner menos eficientes solo por como constra el tema, aqui bajo el primer dia use la AI como guia tipo profesor, pedi constantemente que resolviera dudas sin darme una respuesta directa ayudandome a finalizarlo, por lo mismo es que tambien se dificulto porque me ayudaba a tener respuestas mas optimas terminando por resultar que algunas cosas fueran mas rapidas de lo que probablemente haya sido la intension del tema.
+
+
+
+--------------------------------------------------
+//////////////////////////////////////////////////
+//////////////////////////////////////////////////
+--------------------------------------------------
+
+
+DIA 3
+MINI RETO 1
