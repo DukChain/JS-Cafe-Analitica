@@ -269,3 +269,29 @@ Costo oculto en `clientesRecurrentes`: `recurrentes.includes()`
    
 MINI RETO 3
 
+Ambas son concideradas O(n) ya que sin importar que una recorra el mismo arreglo 4 veces, no significa que sea mayor ya que el proceso se hace una unica vez (aunque hayan 2 map porque ambos cumplen funciones diferentes)
+
+
+valorVenta: O(1) No crea nada que crezca
+totalVendido: O(1) No crea nada que crezca
+unidadesVendidas: O(1) No crea nada que crezca
+ventaMayor: O(1) No crea nada que crezca
+TotalCantidades: O(1) No crea nada que crezca
+ticketPromedio: O(1) No crea nada que crezca
+ventasPorCiudad: O(1) No crea nada que crezca
+totalCiudadCadena: O(n) Crea algo con un elemento por venta
+totalCiudadUnaPasada: O(1) No crea nada que crezca
+totalVendidoM: O(n) Crea algo con un elemento por venta
+unidadesVendidasM: O(1) No crea nada que crezca
+ventasPorCiudadM: O(n) Crea algo con un elemento por venta
+totalPorCiudad: O(k) Crea algo con un elemento por cada valor distinto
+unidadesPorProducto: O(p) Crea algo con un elemento por cada valor distinto
+topProductosPorValor: O(p) Crea algo con un elemento por cada valor distinto
+ventasDelDia: O(n) Crea algo con un elemento por venta
+
+
+Iria por totalCiudadUnaPasada ya que aunque ambas se en tipo duran lo mismo su espacio es menor, logrando que al menos por ese lado sea mas recursivo y optimo.
+
+MINI RETO 4
+
+
